@@ -49,6 +49,32 @@ app.post("/post/update/:id",async(req,res)=>{
         post,
     });
 })
+app.post("/post/allpost",async(req,res)=>{
+    const post = await Post.find();
+    if(!post){
+        res.status(404).json({
+            success: false,
+            message:"Product Not Found"
+        });
+    }
+    res.status(200).json({
+        success: true,
+        post
+    });
+})
+app.post("/post/:id",async(req,res)=>{
+    const post = await Post.findById(req.params.id);
+    if(!post){
+        res.status(404).json({
+            success: false,
+            message:"Product Not Found"
+        });
+    }
+    res.status(200).json({
+        success: true,
+        post
+    });
+})
 
 
 
