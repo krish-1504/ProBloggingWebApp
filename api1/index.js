@@ -3,13 +3,10 @@ const app = exp();
 const dbConnect = require("./config/dbConnect");
 const Post = require('./model/post');
 const cors = require("cors")
-
 app.use(cors());
 app.use(exp.json());
 app.use(exp.urlencoded({ extended: true }));
 dbConnect();
-
-
 
 app.get("/",(req,res)=>{
     res.send("hiiiiii")
