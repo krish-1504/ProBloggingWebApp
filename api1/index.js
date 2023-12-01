@@ -15,15 +15,18 @@ app.get("/",(req,res)=>{
     res.send("hiiiiii")
 })
 
-app.post("/post",async(req,res)=>{
+app.post("/post/create",async(req,res)=>{
     const post = await Post.create(req.body);
     res.send(post);
 })
 
-app.delete("/post/:id",async(req,res)=>{
+app.delete("/post/delete/:id",async(req,res)=>{
     const post = await Post.findById(req.params.id);
     if(!post){
-        res.send("Product Not Found");
+        res.status(404).json({
+            success: false,
+            message:"Product Not Found"
+        });
     }
     await post.deleteOne();
     res.status(200).json({
@@ -31,15 +34,18 @@ app.delete("/post/:id",async(req,res)=>{
 
     });
 })
-app.post("/post/:id",async(req,res)=>{
-    const post = await Post.findById(req.params.id);
+app.post("/post/update/:id",async(req,res)=>{
+    let post = await Post.findById(req.params.id);
     if(!post){
-        res.send("Product Not Found");
+        res.status(404).json({
+            success: false,
+            message:"Product Not Found"
+        });
     }
-    await post.deleteOne();
-    res.status(200).json({
-        success: true,
+    post = await Post.findByIdAndUpdate(req.params.id, req.body);
 
+    res.status(200).json({
+      post,
     });
 })
 
