@@ -35,17 +35,18 @@ app.delete("/post/delete/:id",async(req,res)=>{
     });
 })
 app.post("/post/update/:id",async(req,res)=>{
-    let post = await Post.findById(req.params.id);
+    const post = await Post.findById(req.params.id);
     if(!post){
         res.status(404).json({
             success: false,
             message:"Product Not Found"
         });
     }
-    post = await Post.findByIdAndUpdate(req.params.id, req.body);
+    post = await Product.findByIdAndUpdate(req.params.id, req.body);
 
     res.status(200).json({
-      post,
+        success:true,
+        post,
     });
 })
 
