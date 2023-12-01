@@ -31,6 +31,17 @@ app.delete("/post/:id",async(req,res)=>{
 
     });
 })
+app.post("/post/:id",async(req,res)=>{
+    const post = await Post.findById(req.params.id);
+    if(!post){
+        res.send("Product Not Found");
+    }
+    await post.deleteOne();
+    res.status(200).json({
+        success: true,
+
+    });
+})
 
 
 
