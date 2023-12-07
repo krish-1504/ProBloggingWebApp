@@ -1,0 +1,28 @@
+.post{
+    /* border: 1px solid black; */
+    /* height: 300px; */
+    display: flex;
+    margin-bottom: 25px;
+}
+.mainpage{
+    /* width: 60%; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.image{
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    height: 200px;
+    margin-right: 20px;
+}
+.postsection{
+    width:70%;
+}
+.title{
+    margin-bottom: 5px;
+}
+.Date{
+    margin-bottom: 10px;
+}

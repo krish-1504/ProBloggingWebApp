@@ -48,7 +48,7 @@ app.delete("/post/delete/:id",async(req,res)=>{
     });
 })
 // READ ALL POST
-app.post("/post/allpost",async(req,res)=>{
+app.get("/post/allpost",async(req,res)=>{
     const post = await Post.find();
     if(!post){
         res.status(404).json({
@@ -76,4 +76,4 @@ app.post("/post/:id",async(req,res)=>{
     });
 });
 
-app.listen(3000);
+app.listen(3001);

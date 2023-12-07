@@ -1,0 +1,25 @@
+/* *{
+    display: flex;
+} */
+
+.Navbar{
+    background-color: aqua;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    justify-content: space-between;
+    text-decoration: none;
+}
+div{
+    text-decoration: none;
+}
+
+.links{
+    display: flex;
+    text-decoration: none;
+    
+}
+li{
+    text-decoration: none;
+}
