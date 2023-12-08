@@ -56,10 +56,7 @@ app.get("/post/allpost",async(req,res)=>{
             message:"Product Not Found"
         });
     }
-    res.status(200).json({
-        success: true,
-        post
-    });
+    res.json(post);
 })
 // READ A POST BY ID
 app.post("/post/:id",async(req,res)=>{

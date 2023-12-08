@@ -2,24 +2,16 @@ import {useEffect,useState,React} from 'react'
 import '../pages/Main.css'
 import Post from '../components/Post'
 const Main = () => {
+    console.log('Main component rendered');
     const [posts,setPosts]=useState([])
     useEffect(()=>{
-
+            console.log("hiiiiiii");
             const fetchData = async () => {
             try {
                 const response = await fetch('http://localhost:3001/post/allpost');
                 const data = await response.json();
-                console.log('API Response:', data.post);
-
-                if (data.success) {
-                    data.post.map((p)=>{
-                        console.log(p);
-                        setPosts([...posts,p])
-                    })
-                    console.log(posts)
-                } else {
-                console.error('Failed to fetch posts:', data.message);
-                }
+                console.log('API Response:', data);
+                setPosts(data);
             } catch (error) {
                 console.error('Error fetching posts:', error);
             }
@@ -28,10 +20,15 @@ const Main = () => {
             fetchData();
             
     },[])
+    // console.log("result",posts);
   return (
     <div className='mainpage'>
         <div className="postsection">
-            <Post />
+            <Post post = {posts[3]}/>
+            <Post post = {posts[3]}/>
+            <Post post = {posts[3]}/>
+            <Post post = {posts[3]}/>
+            
         </div>
     </div>
   )
